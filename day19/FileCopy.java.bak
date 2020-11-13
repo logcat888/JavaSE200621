@@ -1,0 +1,64 @@
+1 package com.atguigu.myexer;
+2 
+3 import org.junit.Test;
+4 
+5 import java.util.*;
+6 
+7 /**
+8  *
+9  * 在当前项目下创建新的文本文件, 起名 test.properties, 里面写一些配置信息, 然后读取所有属性值.
+10  *
+11  * 1.请从命令行参数获取 10个整数字符串,并将它们转为整数并保存到List中，并按倒序、从大到小的顺序显示出来
+12  *
+13  * 2.请把学生名与考试分数录入到Map中，并按分数显示前三名成绩学员的名字。
+14  *
+15  * 总结ArrayList源码.
+16  *
+17  * 创建一个文件, 读取文件内容并打印输出
+18  *
+19  * 把文件内容读入一个集合, 排序后倒序打印...
+20  * @author chenhuiup
+21  * @create 2020-07-18 上午 9:56
+22  */
+23 public class homework1 {
+24 
+25     public static void main(String[] args) {
+26         List<Integer> list = new ArrayList<>();
+27         for (int i = 0; i < args.length; i++) {
+28             list.add(Integer.parseInt(args[i]));
+29         }
+30         Collections.sort(list);
+31         Collections.reverse(list);
+32         System.out.println(list);
+33     }
+34 
+35     @Test
+36     public void test(){
+37         Map<String,Integer> map = new HashMap<>();
+38         map.put("Tom",99);
+39         map.put("Ace",95);
+40         map.put("Bob",99);
+41         map.put("Cat",78);
+42         map.put("Dog",65);
+43         map.put("Eat",73);
+44         System.out.println(map);
+45 
+46         TreeMap<Integer, String> treeMap = new TreeMap<>(new Comparator<Integer>(){
+47 
+48             @Override
+49             public int compare(Integer o1, Integer o2) {
+50                 int n = o1 - o2;
+51                 return -n;
+52             }
+53         });
+54 
+55         Set<Map.Entry<Integer, String>> set = treeMap.entrySet();
+56         Iterator<Map.Entry<Integer, String>> iterator = set.iterator();
+57         while(iterator.hasNext()){
+58 
+59         }
+60 
+61 
+62     }
+63 }
+64 
